@@ -12,9 +12,12 @@ class Kernel extends ConsoleKernel
      *
      * @var array
      */
-    protected $commands = [
-        //
-    ];
+   
+       
+        protected $commands = [
+            Commands\EveryMinute::class,
+        ];
+        
 
     /**
      * Define the application's command schedule.
@@ -25,6 +28,13 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+        
+      
+            $schedule->command('every:minute')->everyMinute();
+            // $schedule->call(function(){})->everyMinute();
+       
+            // $schedule->command('inspire')->hourly();
+            
     }
 
     /**

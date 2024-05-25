@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ReminderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+
+Route::get('/reminders', [ReminderController::class, 'index'])->name('reminders.index');
+Route::get('/reminders/create', [ReminderController::class, 'create'])->name('reminders.create');
+Route::post('/reminders', [ReminderController::class, 'store'])->name('reminders.store');
+// Add routes for updating, deleting, etc.
